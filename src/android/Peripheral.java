@@ -286,7 +286,8 @@ public class Peripheral extends BluetoothGattCallback {
             notificationCallbacks.put(key, callbackContext);
 
             if (gatt.setCharacteristicNotification(characteristic, true)) {
-
+                // If the characacteristic has no description fails, but it souldn
+/*
                 // Why doesn't setCharacteristicNotification write the descriptor?
                 BluetoothGattDescriptor descriptor = characteristic.getDescriptor(CLIENT_CHARACTERISTIC_CONFIGURATION_UUID);
                 if (descriptor != null) {
@@ -309,7 +310,7 @@ public class Peripheral extends BluetoothGattCallback {
                 } else {
                     callbackContext.error("Set notification failed for " + characteristicUUID);
                 }
-
+*/
             } else {
                 callbackContext.error("Failed to register notification for " + characteristicUUID);
             }
